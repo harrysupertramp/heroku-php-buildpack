@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Check if this buildpack should be applied to the app
+# The criteria can be based on the presence of specific files or conditions in your app.
+
+# Example: Detect based on the presence of a composer.json file
+if [ -f "$BUILD_DIR/composer.json" ]; then
+  echo "PHP buildpack detected."
+  exit 0  # Buildpack should be applied
+else
+  echo "No PHP buildpack detected."
+  exit 1  # Buildpack should not be applied
+fi
